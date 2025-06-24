@@ -37,16 +37,11 @@ namespace name
 
 		void setup_player_name()
 		{
-			std::string initial_name = steam_proxy::get_player_name();
+			std::string initial_name = utils::nt::get_user_name();
 
 			if (initial_name.empty())
 			{
-				initial_name = utils::nt::get_user_name();
-			}
-
-			if (initial_name.empty())
-			{
-				initial_name = "Unknown Soldier";
+				initial_name = "evil lobster";
 			}
 
 			update_player_name(initial_name);

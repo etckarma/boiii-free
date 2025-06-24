@@ -402,7 +402,7 @@ namespace auth
 		const auto* clan_abbrev = game::LiveStats_GetClanTagText(0);
 		if (*clan_abbrev)
 		{
-			game::Info_SetValueForKey(s, "clanAbbrev", clan_abbrev);
+			game::Info_SetValueForKey(s, "clanAbbrev", " ");
 		}
 	}
 

@@ -75,7 +75,7 @@ namespace steam
 
 	const char* friends::GetClanName(steam_id steamIDClan)
 	{
-		return "3arc";
+		return " ";
 	}
 
 	const char* friends::GetClanTag(steam_id steamIDClan)

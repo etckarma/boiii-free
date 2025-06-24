@@ -21,14 +21,14 @@ namespace branding
 			const auto* font = reinterpret_cast<uint32_t*(*)()>(0x141CAC8E0_g)();
 			if (!font) return;
 
-			game::R_AddCmdDrawText("BOIII: " VERSION, std::numeric_limits<int>::max(), font, static_cast<float>(x),
+		game::R_AddCmdDrawText(" ", std::numeric_limits<int>::max(), font, static_cast<float>(x),
 			                       y + static_cast<float>(font[2]) * scale,
 			                       scale, scale, 0.0f, color, game::ITEM_TEXTSTYLE_NORMAL);
 		}
 
 		const char* get_ingame_console_prefix_stub()
 		{
-			return "BOIII> ";
+			return "evil lobster> ";
 		}
 	}
 
@@ -36,7 +36,7 @@ namespace branding
 	{
 		void post_unpack() override
 		{
-			scheduler::loop(draw_branding, scheduler::renderer);
+			//scheduler::loop(draw_branding, scheduler::renderer);
 
 			// Change window title prefix
 			utils::hook::copy_string(0x14303F3D8_g, "BOIII");

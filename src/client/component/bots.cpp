@@ -24,14 +24,14 @@ namespace bots
 		{
 			std::vector<bot_name> bot_names =
 			{
-				{"momo5502", "IW5x"},
-				{"Jasmin", "<3"},
-				{"Dss0", "IW3x"},
-				{"FutureRave", "FR"},
-				{"Diamante", "IW2x"},
-				{"St0rm", "NN"},
-				{"Joel", "NN"},
-				{"Louve", "IW5x"},
+				{"karma", "@vtolstall"},
+				{"good lobster", "lobster"},
+				{"evil lobster", "recets"},
+				{"doms beach house", "faze_nsl"},
+				{"dqminics", "dexy"},
+				{"meta", "cruel"},
+				{"sprays", "jank"},
+				{"vainescape", "vis"},
 			};
 
 			std::string buffer;
@@ -51,20 +51,7 @@ namespace bots
 					continue;
 				}
 
-				std::string clan_abbrev;
-				// Check if there is a clan tag
-				if (const auto pos = entry.find(','); pos != std::string::npos)
-				{
-					// Only start copying over from non-null characters (otherwise it can be "<=")
-					if ((pos + 1) < entry.size())
-					{
-						clan_abbrev = entry.substr(pos + 1);
-					}
-
-					entry = entry.substr(0, pos);
-				}
-
-				bot_names.emplace_back(entry, clan_abbrev);
+				bot_names.emplace_back(entry, " ");
 			}
 
 			return bot_names;
@@ -97,20 +84,7 @@ namespace bots
 		int format_bot_string(char* buffer, [[maybe_unused]] const char* format, const char* name, const char* xuid,
 		                      const char* xnaddr, int protocol, int net_field_chk, const char* session_mode, int qport)
 		{
-			const auto find_clan_name = [](const std::string& needle) -> const char*
-			{
-				for (const auto& entry : get_bot_names())
-				{
-					if (entry.first == needle)
-					{
-						return entry.second.data();
-					}
-				}
-
-				return "3arc";
-			};
-
-			return sprintf_s(buffer, 1024, bot_format_string, name, find_clan_name(name),
+			return sprintf_s(buffer, 1024, bot_format_string, name, " ",
 			                 xuid, xnaddr, protocol, net_field_chk, session_mode, qport);
 		}
 	}

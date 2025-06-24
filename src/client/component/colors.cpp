@@ -95,6 +95,7 @@ namespace colors
 	{
 		void post_unpack() override
 		{
+			/*
 			patch_color<1>(255, 49, 49); // 1  - Red
 			patch_color<2>(134, 192, 0); // 2  - Green
 			patch_color<3>(255, 173, 34); // 3  - Yellow
@@ -105,6 +106,7 @@ namespace colors
 			// Old addresses
 			cl_get_client_name_hook.create(game::CL_GetClientName, cl_get_client_name_stub);
 			//utils::hook::jump(0x141EC72E0_g, get_gamer_tag_stub);
+			*/
 		}
 	};
 }
